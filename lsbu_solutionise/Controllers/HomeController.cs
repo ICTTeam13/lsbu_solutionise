@@ -21,6 +21,10 @@ namespace lsbu_solutionise.Controllers
         {
             return View("About");
         }
+        public IActionResult Contact()
+        {
+            return View("contact");
+        }
 
         public IActionResult Privacy()
         {
