@@ -8,14 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\contact.cshtml" />
-    <Content Remove="Views\Home\faq.cshtml" />
     <Content Remove="Views\Home\signup.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\contact.cshtml" />
-    <None Include="Views\Home\faq.cshtml" />
     <None Include="Views\Home\signup.cshtml" />
   </ItemGroup>
 
