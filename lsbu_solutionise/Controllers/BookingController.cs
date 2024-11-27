@@ -45,10 +45,10 @@ namespace lsbu_solutionise.Controllers
             {
 
                 await _emailService.SendEmailAsync("aammir.raja@gmail.com", "Test", "Test");
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View();
 
