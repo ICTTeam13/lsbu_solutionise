@@ -125,15 +125,13 @@ a:focus {
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: end;
+          justify-content: space-between;
           gap: 10px;
 }
 
 .contact_nav {
   display: flex;
-  padding-top: 16px;
   justify-content: center;
-
   gap: 16px;
 }
 
@@ -168,7 +166,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav {
-  margin-left: 25%;
+  margin-left: auto;
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
