@@ -6,6 +6,7 @@ using System.Reflection;
 using MimeKit;
 using MailKit.Net.Smtp;
 using lsbu_solutionise.Sevices;
+using lsbu_solutionise.Models;
 
 namespace lsbu_solutionise.Controllers
 {
@@ -38,7 +39,7 @@ namespace lsbu_solutionise.Controllers
         // POST: BookingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(IFormCollection collection)
+        public async Task<ActionResult> Create(AppointmentViewModel collection)
         {
             try
             {
