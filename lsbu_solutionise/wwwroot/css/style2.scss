@@ -1,0 +1,128 @@
+// Importing Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather+Sans:wght@400;700&display=swap");
+
+// Variables
+$primary-color: #584595;
+$secondary-color: #ffffff;
+$font-family-main: 'Lato', sans-serif;
+$font-family-heading: 'Merriweather Sans', sans-serif;
+
+// Global styles
+body {
+  font-family: $font-family-main;
+  color: #040000;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+}
+
+// Utility Classes
+%layout-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.layout_padding {
+  @extend %layout-padding;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 120px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 120px;
+}
+
+// Heading Container
+.heading_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: $primary-color;
+  color: $secondary-color;
+  text-align: center;
+  height: 60px;
+
+  h2 {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: $font-family-heading;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &.heading_center {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+// Header Section
+.hero_area {
+  position: relative;
+  background-color: #f9eeff;
+}
+
+.header_section {
+  .container-fluid {
+    padding: 0 25px;
+  }
+
+  .header_top {
+    padding: 15px 0;
+    background-color: #000;
+
+    .contact_nav {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+
+      a {
+        color: $secondary-color;
+
+        i {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .header_bottom {
+    padding: 10px 0;
+  }
+
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
+
+    span {
+      color: $primary-color;
+      text-transform: uppercase;
+    }
+  }
+}
+
+// Add additional sections here (similar structure)
