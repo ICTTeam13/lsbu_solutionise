@@ -29,7 +29,14 @@ namespace lsbu_solutionise.Controllers
         {
             return View("Faq");
         }
-
+        public IActionResult Policies()
+        {
+            return View();
+        }
+        public IActionResult Faq_Content()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
