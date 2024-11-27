@@ -1,13 +1,25 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Reflection;
+using MimeKit;
+using MailKit.Net.Smtp;
+using lsbu_solutionise.Sevices;
 
 namespace lsbu_solutionise.Controllers
 {
     public class BookingController : Controller
     {
+        private readonly EmailService _emailService;
+        public BookingController(EmailService emailService) 
+        {
+            _emailService = emailService;
+        }
         // GET: BookingController
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -26,19 +38,21 @@ namespace lsbu_solutionise.Controllers
         // POST: BookingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(IFormCollection collection)
         {
             try
             {
+
+                await _emailService.SendEmailAsync("aammir.raja@gmail.com", "Test", "Test");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+
+            catch (Exception ex)
             {
                 return View();
+
             }
         }
-
-        // GET: BookingController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
