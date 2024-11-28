@@ -44,7 +44,8 @@ namespace lsbu_solutionise.Controllers
             try
             {
 
-                await _emailService.SendEmailAsync("aammir.raja@gmail.com", "Test", "Test");
+                string body = $"You appointment is confirmed on {collection.BookingDateTime.ToString()}. Your Contact Number is : {collection.PhoneNumber}";
+                await _emailService.SendEmailAsync(collection.Email, "Appointment Confirmed", body);
                 return RedirectToAction("Index", "Home");
             }
 
