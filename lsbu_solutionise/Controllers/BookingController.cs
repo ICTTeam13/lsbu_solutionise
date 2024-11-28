@@ -85,7 +85,7 @@ namespace lsbu_solutionise.Controllers
     <div class='email-container'>
         <div class='header'>Welcome, {0}!</div>
         <div class='content'>
-            <p>Dear {0},</p>
+            <p>Dear,</p>
             <p>We are pleased to confirm your booking.</p>
             <p><strong>Booking Date and Time:</strong> {1}</p>
             <p>If you have any questions, feel free to reply to this email or visit our <a href='https://localhost:7038'>website</a>.</p>
