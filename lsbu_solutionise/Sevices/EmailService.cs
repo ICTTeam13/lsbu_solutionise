@@ -35,22 +35,6 @@ namespace lsbu_solutionise.Sevices
 
             smtpClient.Send(mail);
 
-            //smtpClient.Send("xassir@gmail.com",toEmail,subject,message);
-
-            //var emailMessage = new MimeMessage();
-            //emailMessage.From.Add(new MailboxAddress(_configuration["SmtpSettings:SenderName"], _configuration["SmtpSettings:SenderEmail"]));
-            //emailMessage.To.Add(new MailboxAddress("", toEmail));
-            //emailMessage.Subject = subject;
-            //emailMessage.Body = new TextPart("html") { Text = message };
-
-
-            //using (var client = new SmtpClient())
-            //{
-            //    await client.ConnectAsync(_configuration["SmtpSettings:Server"], int.Parse(_configuration["SmtpSettings:Port"]), MailKit.Security.SecureSocketOptions.SslOnConnect);
-            //    await client.AuthenticateAsync(_configuration["SmtpSettings:Username"], _configuration["SmtpSettings:Password"]);
-            //    await client.SendAsync(emailMessage);
-            //    await client.DisconnectAsync(true);
-            //}
         }
 
     }
