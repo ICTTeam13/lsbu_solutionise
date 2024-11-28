@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Registration - Page 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="screen">
+    <header class="header">
+      <button class="back-button">&#8592;</button>
+      <h1>Client Registration</h1>
+    </header>
+    <div class="progress">
+      <span>Step 1 of 4</span>
+      <div class="progress-bar">
+        <div class="progress-bar-filled"></div>
+      </div>
+    </div>
+    <section class="form-section">
+      <h2>Personal Information</h2>
+      <form action="page2.html" method="POST">
+        <div class="input-group">
+          <label for="first-name">First Name</label>
+          <div class="input-wrapper">
+            <span class="icon">&#128100;</span>
+            <input type="text" id="first-name" name="first-name" placeholder="Input text" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="last-name">Last Name</label>
+          <div class="input-wrapper">
+            <span class="icon">&#128100;</span>
+            <input type="text" id="last-name" name="last-name" placeholder="Input text" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <span class="icon">&#9993;</span>
+            <input type="email" id="email" name="email" placeholder="Input text" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="contact-number">Contact Number</label>
+          <div class="input-wrapper">
+            <span class="icon">&#9742;</span>
+            <input type="tel" id="contact-number" name="contact-number" placeholder="Input text" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">Continue</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Registration - Page 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="screen">
+    <header class="header">
+      <button class="back-button">&#8592;</button>
+      <h1>Client Registration</h1>
+    </header>
+    <div class="progress">
+      <span>Step 2 of 4</span>
+      <div class="progress-bar">
+        <div class="progress-bar-filled" style="width: 50%;"></div>
+      </div>
+    </div>
+    <section class="form-section">
+      <h2>Business Information</h2>
+      <form action="page3.html" method="POST">
+        <div class="input-group">
+          <label for="business-name">Business Name</label>
+          <div class="input-wrapper">
+            <span class="icon">&#128188;</span>
+            <input type="text" id="business-name" name="business-name" placeholder="Input text" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="business-stage">Business Stage</label>
+          <select id="business-stage" name="business-stage">
+            <option value="" disabled selected>Select Business Stage</option>
+            <option value="stage1">Menu item 1</option>
+            <option value="stage2">Menu item 2</option>
+            <option value="stage3">Menu item 3</option>
+            <option value="stage4">Menu item 4</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="business-description">Brief Description of Business</label>
+          <textarea id="business-description" name="business-description" rows="4" placeholder="Text area with a word limit"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="business-industry">Business Industry or Sector</label>
+          <select id="business-industry" name="business-industry">
+            <option value="" disabled selected>Select Industry</option>
+            <option value="industry1">Menu item 1</option>
+            <option value="industry2">Menu item 2</option>
+            <option value="industry3">Menu item 3</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="postcode">Registered Business Postcode</label>
+          <div class="input-wrapper">
+            <span class="icon">&#128205;</span>
+            <input type="text" id="postcode" name="postcode" placeholder="Optional">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="contact-number">Business Contact Number</label>
+          <div class="input-wrapper">
+            <span class="icon">&#9742;</span>
+            <input type="tel" id="contact-number" name="contact-number" placeholder="Optional">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="website">Company Website</label>
+          <div class="input-wrapper">
+            <span class="icon">&#128279;</span>
+            <input type="url" id="website" name="website" placeholder="Optional">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Social Media Channels</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="social-media" value="channel1"> List item 1</label>
+            <label><input type="checkbox" name="social-media" value="channel2"> List item 2</label>
+            <label><input type="checkbox" name="social-media" value="channel3"> List item 3</label>
+            <label><input type="checkbox" name="social-media" value="channel4" checked> List item 4</label>
+            <label><input type="checkbox" name="social-media" value="channel5"> List item 5</label>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="social-media-links">Social Media Links</label>
+          <textarea id="social-media-links" name="social-media-links" rows="2" placeholder="Text area to add URLs if applicable"></textarea>
+        </div>
+        <div class="button-group">
+          <button type="button" class="btn-secondary" onclick="window.location.href='page1.html'">Back</button>
+          <button type="submit" class="btn-primary">Next</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* Reset */
+body, h1, h2, p, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000;
+  }
+  
+  .screen {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  
+  .header h1 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Progress */
+  .progress {
+    margin-bottom: 24px;
+  }
+  
+  .progress span {
+    font-size: 14px;
+    color: #7c7c7c;
+  }
+  
+  .progress-bar {
+    height: 4px;
+    width: 100%;
+    background-color: #eaeaea;
+    margin-top: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .progress-bar-filled {
+    width: 25%; /* Step 1 of 4 */
+    height: 100%;
+    background-color: #d3bffb;
+  }
+  
+  /* Form Section */
+  .form-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .input-group {
+    margin-bottom: 16px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  .input-wrapper .icon {
+    font-size: 16px;
+    color: #7c7c7c;
+    margin-right: 8px;
+  }
+  
+  .input-wrapper input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    background: none;
+  }
+  
+  /* Button */
+  .btn-primary {
+    width: 100%;
+    background-color: #7c4dff;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #693fd3;
+  }
+  
+  /* General styles are inherited from Page 1 CSS */
+.input-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+}
+
+.input-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+.checkbox-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.checkbox-group input {
+  margin-right: 8px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #000;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #c0c0c0;
+}
+
+.document-link {
+  display: block; /* Ensures it behaves like a block element */
+  margin: 16px 0; /* Adds space above and below the button */
+  text-align: left; /* Aligns the link text to the left */
+}

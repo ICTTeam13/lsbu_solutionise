@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Registration - Page 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <!-- Header Section -->
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='page2.html'">←</button>
+            <h1>Client Registration</h1>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress">
+            <span>Step 3 of 4</span>
+            <div class="progress-bar">
+                <div class="progress-bar-filled" style="width: 75%;"></div>
+            </div>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2>Support Needs</h2>
+            <p>Select the areas where you need guidance, and let us know what you’re hoping to achieve with our help.</p>
+            <form action="page4.html" method="POST">
+                <!-- Type of Help -->
+                <div class="input-group">
+                    <label>Type of Help</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="help-type" value="hire-student"> Hire a student or graduate (only paid opportunities)</label>
+                        <label><input type="checkbox" name="help-type" value="business-advice"> I need business advice</label>
+                        <label><input type="checkbox" name="help-type" value="legal-advice"> I need legal advice</label>
+                    </div>
+                </div>
+                
+                <!-- Topics/Areas for Support -->
+                <div class="input-group">
+                    <label for="support-topics">Topics/Areas for Support</label>
+                    <select id="support-topics" name="support-topics[]" multiple>
+                        <option value="item1">List item 1</option>
+                        <option value="item2">List item 2</option>
+                        <option value="item3">List item 3</option>
+                        <option value="item4">List item 4</option>
+                        <option value="item5">List item 5</option>
+                    </select>
+                </div>
+                
+                <!-- Additional Details -->
+                <div class="input-group">
+                    <label for="additional-details">Additional Details</label>
+                    <textarea id="additional-details" name="additional-details" rows="3" placeholder="Please specify in 1-2 sentences what you hope to achieve from Solutionise"></textarea>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='page2.html'">Back</button>
+                    <button type="submit" class="btn-primary">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
