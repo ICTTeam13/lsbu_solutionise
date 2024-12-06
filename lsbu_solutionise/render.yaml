@@ -1,9 +1,0 @@
-services:
-  - name: backend
-    type: web
-    env: dotnet
-    buildCommand: "dotnet publish -c Release -o ./publish"
-    startCommand: "dotnet ./publish/lsbu_solutionise.dll"
-    envVars:
-      - key: ASPNETCORE_ENVIRONMENT
-        value: Production
