@@ -1,0 +1,17 @@
+{
+  "name": "lsbu_solutionise",
+  "version": "1.0.0",
+  "description": "A basic project using HTML, CSS, and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server ./ --port=8080",
+    "build": "echo 'No build process needed for static files.'",
+    "test": "echo 'No tests specified'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  },
+  "keywords": []
+}
