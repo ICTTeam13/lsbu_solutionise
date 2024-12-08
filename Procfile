@@ -1,0 +1,1 @@
+web: dotnet lsbu_solutionise.dll
