@@ -7,15 +7,18 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using lsbu_solutionise.Sevices;
 using lsbu_solutionise.Models;
+using lsbu_solutionise.Data;
 
 namespace lsbu_solutionise.Controllers
 {
     public class BookingController : Controller
     {
         private readonly EmailService _emailService;
-        public BookingController(EmailService emailService) 
+        private readonly ApplicationDbContext _context;
+        public BookingController(ApplicationDbContext context,EmailService emailService) 
         {
             _emailService = emailService;
+            _context = context;
         }
         // GET: BookingController
         public ActionResult Index()
@@ -39,7 +42,7 @@ namespace lsbu_solutionise.Controllers
         // POST: BookingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CustomerViewModel collection)
+        public async Task<ActionResult> Create([Bind("FirstName,LastName,ContactNumber,Email,BusinessName,BusinessType,BusinessDescription,BusinessAddress,BusinessPostcode,BusinessWebsite,BusinessContact,AnnualRevenue,SupportNeed,HearUs,BookingDateTime")] CustomerViewModel collection)
         {
             try
             {
@@ -98,10 +101,39 @@ namespace lsbu_solutionise.Controllers
 </html>";
 
                 #endregion
-                //string body = $"You appointment is confirmed on {collection.BookingDateTime.ToString()}. Your Contact Number is : {collection.PhoneNumber}";
-                var msg = string.Format(body, collection.FirstName, collection.BookingDateTime.ToString("f"));
-                await _emailService.SendEmailAsync(collection.Email, "Appointment Confirmed", msg);
-                return RedirectToAction("Index", "Home");
+
+                if (!ModelState.IsValid)
+                {
+                    Customer customer = new Customer();
+                    customer.Id = Guid.NewGuid();
+                    customer.FirstName = collection.FirstName;
+                    customer.LastName = collection.LastName;
+                    customer.Email = collection.Email;
+                    customer.ContactNumber = collection.ContactNumber;
+                    customer.BusinessAddress = "okay";
+                    customer.BusinessName = collection.BusinessName;
+                    customer.BusinessDescription = collection.BusinessDescription;
+                    customer.BusinessWebsite = collection.BusinessWebsite;
+                    customer.BusinessPostcode = collection.BusinessPostcode;
+                    customer.AnnualRevenue = "500";
+                    customer.BookingDateTime = collection.BookingDateTime;
+                    customer.BusinessType = "IT";
+                    customer.BusinessContact = collection.BusinessContact;
+                    customer.SupportNeed = collection.SupportNeed;
+                    customer.HearUs = collection.HearUs;
+                    
+                    customer.CreationDatimetime = DateTime.Now;
+                    customer.UpdateDatimetime = DateTime.Now;
+
+                    _context.Add(customer);
+                    await _context.SaveChangesAsync();
+                    //string body = $"You appointment is confirmed on {collection.BookingDateTime.ToString()}. Your Contact Number is : {collection.PhoneNumber}";
+                    var msg = string.Format(body, collection.FirstName, collection.BookingDateTime.ToString("f"));
+                    await _emailService.SendEmailAsync(collection.Email, "Appointment Confirmed", msg);
+                    return RedirectToAction("Index", "Home");                    
+                }
+                return View(collection);
+
             }
 
             catch (Exception)
