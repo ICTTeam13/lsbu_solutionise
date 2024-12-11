@@ -20,11 +20,18 @@ namespace lsbu_solutionise.Models
         public string BusinessPostcode { get; set; }
         public string BusinessWebsite { get; set; }
         public string BusinessContact { get; set; }
+        public string SocialMediaLink { get; set; }
         public string AnnualRevenue { get; set; }
         public string SupportNeed { get; set; }
         public string HearUs { get; set; }
+        public string HelpTypes { get; set; }
+        public string AdditionalDetail { get; set; }
+        public string Feedback { get; set; }
+        public string AgreeTerms { get; set; }
+        
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime BookingDateTime { get; set; }
+        
     }
 }

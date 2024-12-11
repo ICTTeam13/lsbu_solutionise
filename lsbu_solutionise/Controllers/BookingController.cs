@@ -39,7 +39,7 @@ namespace lsbu_solutionise.Controllers
         // POST: BookingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(AppointmentViewModel collection)
+        public async Task<ActionResult> Create(CustomerViewModel collection)
         {
             try
             {
@@ -99,7 +99,7 @@ namespace lsbu_solutionise.Controllers
 
                 #endregion
                 //string body = $"You appointment is confirmed on {collection.BookingDateTime.ToString()}. Your Contact Number is : {collection.PhoneNumber}";
-                var msg = string.Format(body, collection.Name, collection.BookingDateTime.ToString("f"));
+                var msg = string.Format(body, collection.FirstName, collection.BookingDateTime.ToString("f"));
                 await _emailService.SendEmailAsync(collection.Email, "Appointment Confirmed", msg);
                 return RedirectToAction("Index", "Home");
             }

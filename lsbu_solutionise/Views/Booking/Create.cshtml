@@ -1,4 +1,4 @@
-﻿@model lsbu_solutionise.Models.AppointmentViewModel
+﻿@model lsbu_solutionise.Models.CustomerViewModel
 
 @{
     Layout = null;
@@ -30,8 +30,15 @@
 
     <!-- Custom styles for this template -->
     <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/client_form.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="~/css/responsive.css" rel="stylesheet" />
+    <style>
+        .contact_section [type="checkbox"],[type="radio"]   {
+            height:12px !important;
+            width: min-content !important;
+        }
+    </style>
 
 </head>
 
@@ -78,36 +85,271 @@
 <section class="contact_section layout_padding">
         <div class="container">
             <div class="heading_container">
-                <h2>
-                    Add a Booking
-                </h2>
+               <h1>Client Registration</h1>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <form asp-action="Create">
-                        <div>
-                            <label asp-for="Name" class="control-label">Name*</label>
-                            <input asp-for="Name" style="color:black" class="form-control" placeholder="Name" required/>
-                            <span asp-validation-for="Name" class="text-danger"></span>
+                        <div id="form_1" style="display:block;">     
+                            <div>
+                                <label asp-for="FirstName" class="control-label">First Name*</label>
+                                <input asp-for="FirstName" style="color:black" class="form-control" placeholder="Firs tName" required/>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <label asp-for="LastName" class="control-label">Last Name*</label>
+                                <input asp-for="LastName" style="color:black" class="form-control" placeholder="Last Name" required/>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <label asp-for="Email" class="control-label">Email*</label>
+                                <input asp-for="Email" style="color:black" class="form-control" placeholder="Email" required/>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <label asp-for="ContactNumber" class="control-label">Contact Number*</label>
+                                <input asp-for="ContactNumber" style="color:black" class="form-control" placeholder="Contact Number" required/>
+                                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="btn-primary" style="height: 45px;width: 80px;text-align: center;cursor:pointer;">Continue</div>
+                            </div>                                           
                         </div>
-                        <div>
-                             <label asp-for="PhoneNumber" class="control-label">Phone Number*</label>
-                            <input asp-for="PhoneNumber" type="tel" style="color:black" class="form-control" placeholder="Phone Number" required/>
-                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <div id="form_2" style="display:block">
+                            <div class="progress">
+                              <span style="width:15%">Step 2 of 4</span>
+                              <div class="progress-bar">
+                                <div class="progress-bar-filled" style="width: 50%;"></div>
+                              </div>
+                            </div>
+                            <h2>Business Information</h2>
+                            <div>
+                                <label asp-for="BusinessName" class="control-label">Business Name*</label>
+                                <input asp-for="BusinessName" style="color:black" class="form-control" placeholder="Business Name" required/>
+                                <span asp-validation-for="BusinessName" class="text-danger"></span>
+                            </div>
+                             <div>
+                                <label asp-for="BusinessDescription" class="control-label">Business Description*</label>
+                                <input asp-for="BusinessDescription" style="color:black" class="form-control" placeholder="Business Description" required />
+                                <span asp-validation-for="BusinessDescription" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <label asp-for="BusinessType" class="control-label">Business Stage</label>
+                                <select asp-for="BusinessType" class="form-control">
+                                    <option value="" disabled selected>Select Business Stage</option>
+                                    <option value="stage1">Menu item 1</option>
+                                    <option value="stage2">Menu item 2</option>
+                                    <option value="stage3">Menu item 3</option>
+                                    <option value="stage4">Menu item 4</option>
+                                </select>
+                                <span asp-validation-for="BusinessType" class="text-danger"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="BusinessPostcode" class="control-label">Registered Business Postcode</label>
+                                    <input asp-for="BusinessPostcode" class="form-control" placeholder="Registered Business Postcode" />
+                                <span asp-validation-for="BusinessPostcode" class="text-danger"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="BusinessContact" class="control-label">Business Contact Number</label>
+                                    <input asp-for="BusinessContact" type="tel" class="form-control" placeholder="Business Contact Number" />
+                                <span asp-validation-for="BusinessContact" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <label asp-for="BusinessWebsite" class="control-label">Business Website</label>
+                                    <input asp-for="BusinessWebsite" type="url" class="form-control" placeholder="Business Website" />
+                                <span asp-validation-for="BusinessWebsite" class="text-danger"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="SocialMediaLink" class="control-label">Social Media Channels</label>
+                                <div>
+                                    <label>
+                                        <input asp-for="SocialMediaLink" type="radio" value="facebook"/>
+                                        Facebook
+                                    </label>
+                                    <label>
+                                        <input asp-for="SocialMediaLink" type="radio" value="instagram"/>
+                                        Instagram
+                                    </label>
+                                    <label>
+                                        <input asp-for="SocialMediaLink" type="radio" value="linkedin"/>
+                                        LinkedIn
+                                    </label>
+                                    <label>
+                                        <input asp-for="SocialMediaLink" type="radio" value="youtube" />
+                                        Youtube
+                                    </label>
+                                  
+                                </div>
+                                <span asp-validation-for="SocialMediaLink" class="text-danger"></span>
+                            </div>
+                             <div class="d-flex">
+                                <div class="btn-secondary" style="height: 45px;width: 80px;text-align: center;cursor:pointer;">Back
+                                </div>
+                               <div class="btn-primary" style="height: 45px;width: 475px;text-align: center;cursor:pointer;">Next
+                                </div>
+                            </div>                            
                         </div>
-                        <div>
-                             <label asp-for="Email" class="control-label">Email*</label>
-                            <input asp-for="Email" type="email" style="color:black" class="form-control" placeholder="Email" required />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                        <div id="form_3" style="display:block;">
+                               <div class="progress">
+                                    <span style="width:15%">Step 3 of 4</span>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-filled" style="width: 75%;"></div>
+                                    </div>
+                                </div>
+                                 <!-- Topics/Areas for Support -->
+                                    <div>
+                                        <label asp-for="SupportNeed" class="control-label">Type of Help</label>
+                                        <div style="display:flex">
+                                            <div>
+                                            <label>
+                                                <input asp-for="SupportNeed" type="radio" value="facebook"/>
+                                                SupportNeed 1
+                                            </label>
+                                            <label>
+                                                <input asp-for="SupportNeed" type="radio" value="instagram"/>
+                                                SupportNeed 2
+                                            </label>
+                                            <label>
+                                                <input asp-for="SupportNeed" type="radio" value="linkedin"/>
+                                                SupportNeed 3
+                                            </label>
+                                            <label>
+                                                <input asp-for="SupportNeed" type="radio" value="youtube" />
+                                                SupportNeed 4
+                                            </label>
+                                  
+                                             </div>
+                                        </div>
+                                        <span asp-validation-for="SupportNeed" class="text-danger"></span>
+                                   </div>
+                                <div>
+
+                                <label asp-for="HelpTypes" class="control-label">Topics/Areas for Support</label>
+                                <div style="display:flex">
+                                    <div>
+                                    <label>
+                                        <input asp-for="HelpTypes" type="radio" value="facebook"/>
+                                        Help Type 1
+                                    </label>
+                                    <label>
+                                        <input asp-for="HelpTypes" type="radio" value="instagram"/>
+                                        Help Type 2
+                                    </label>
+                                    <label>
+                                        <input asp-for="HelpTypes" type="radio" value="linkedin"/>
+                                        Help Type 3
+                                    </label>
+                                    <label>
+                                        <input asp-for="HelpTypes" type="radio" value="youtube" />
+                                        Help Type 4
+                                    </label>                                  
+                                     </div>
+                                </div>
+                                 <span asp-validation-for="HelpTypes" class="text-danger"></span>
+                                </div>
+                                <!-- Additional Details -->
+                            <div>
+                                <label asp-for="AdditionalDetail" class="control-label">Additional Details</label>
+                                <textarea asp-for="AdditionalDetail" rows="3" class="form-control" placeholder="Please specify in 1-2 sentences what you hope to achieve from Solutionise"></textarea>
+                                <span asp-validation-for="AdditionalDetail" class="text-danger"></span>
+                            </div>
+                            <div class="d-flex">
+                                <div class="btn-secondary" style="height: 45px;width: 80px;text-align: center;cursor:pointer;">Back
+                                </div>
+                               <div class="btn-primary" style="height: 45px;width: 475px;text-align: center;cursor:pointer;">Next
+                                </div>
+                            </div>  
                         </div>
-                        <div>
-                            <label asp-for="BookingDateTime" class="control-label">Booking Date and Time*</label>
-                            <input asp-for="BookingDateTime" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" type="datetime-local" class="form-control" style="color:black" required/>
-                            <span asp-validation-for="BookingDateTime" class="text-danger"></span>
-                        </div>
+
+                        <div id="form_4" style="display:block;">
+                                    <!-- Progress Bar -->
+                            <div class="progress">
+                                <span style="width:15%">Step 4 of 4</span>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-filled" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                            <h2>We Value Your Feedback</h2>
+                            <p>At Solutionise, we’re always working to improve our services. Your feedback helps us serve our community better.</p>
+
+                            <!-- Where did you hear about Solutionise? -->
+                            <label asp-for="HearUs" class="control-label">Where did you hear about Solutionise?</label>
+                                    <div style="display:flex">
+                                        <div>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="facebook"/>
+                                            Help Type 1
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="instagram"/>
+                                            Help Type 2
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="linkedin"/>
+                                            Help Type 3
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="youtube" />
+                                            Help Type 4
+                                        </label>                                  
+                                         </div>
+                                    </div>
+                                     <span asp-validation-for="HearUs" class="text-danger"></span>
+                              </div>
+
+                            <!-- Feedback Comments -->
+                            <div class="input-group">
+                                <label asp-for="Feedback" class="control-label">Please tell us how we can improve</label>
+                                <textarea asp-for="Feedback" rows="3" class="form-control" placeholder="Enter your feedback comments in this box below"></textarea>
+                                <span asp-validation-for="Feedback" class="text-danger"></span>
+                            </div>
+
+                            <!-- LSBU Alumni Question -->
+                            <div>
+                                <label asp-for="HelpTypes" class="control-label">Are you a student or alumni of LSBU?
+                                    <p>(If you are an LSBU alumni who graduated more than 5 years ago, please select No)</p>
+                                </label>
+                                        <div style="display:flex">
+                                            <div>
+                                                <label>
+                                                    <input asp-for="HelpTypes" type="radio" value="facebook"/>
+                                                    Yes
+                                                </label>
+                                                <label>
+                                                    <input asp-for="HelpTypes" type="radio" value="instagram"/>
+                                                    NO
+                                                </label>
+                                                                
+                                             </div>
+                                        </div>
+                                         <span asp-validation-for="HelpTypes" class="text-danger"></span>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="input-group">
+                                <label asp-for="AgreeTerms" class="control-label">Terms and Conditions</label>
+                                <p>Please review the brief summary of our terms and conditions. Click the link below to view the full document.</p>
+    
+                                <a style="margin:0px 0px 0px 0px !important" href="/home/policies" target="_blank" class="document-link">View Full Document</a>
+
+                                <label>
+                                    <input style="margin-left:10px;"asp-for="AgreeTerms" type="checkbox" /> I agree to the terms and conditions
+                                </label>
+                                <span asp-validation-for="AgreeTerms" class="text-danger"></span>
+                            </div>
+                                                    
                         <div class="d-flex">
-                            <input type="submit" value="Add" style="background-color: #584595;" />                            
+                            <input type="submit" value="Submit" style="background-color: #584595;" />                            
                         </div>
+
+                        </div>
+
                     </form>
                 </div>
             </div>
