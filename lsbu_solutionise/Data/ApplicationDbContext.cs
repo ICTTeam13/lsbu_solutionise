@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using lsbu_solutionise.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace lsbu_solutionise.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<lsbu_solutionise.Data.Customer> Customer { get; set; } = default!;
+        public DbSet<Customer> Customer { get; set; } = default!;
     }
 }

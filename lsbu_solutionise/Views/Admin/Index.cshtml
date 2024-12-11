@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AdminViewModel>
+@{
+    ViewData["Title"] = "Admin";    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h1>Customers</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>CustomerID</th>
+            <th>CustomerName</th>
+            <th>BusinessName</th>
+            <th>AppointmentDate</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.CustomerName</td>
+                <td>@item.BusinessName</td>
+                <td>@item.AppointmentDate</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

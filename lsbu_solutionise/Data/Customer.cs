@@ -28,6 +28,9 @@ namespace lsbu_solutionise.Data
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime BookingDateTime { get; set; }
-        
+        public DateTime UpdateDatimetime { get; set; }
+        public DateTime CreationDatimetime { get; set; }
+
+
     }
 }

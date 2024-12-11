@@ -2,6 +2,7 @@ using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
 using Ical.Net.Serialization;
 using lsbu_solutionise.Data;
+using lsbu_solutionise.Helper;
 using lsbu_solutionise.Sevices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +15,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>(); // Add Role Management;
+
+
+
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddRazorPages();
 //var date = new CalDateTime(2024, 10, 15, 11, 0, 0);
 //var calendarEvent = new CalendarEvent
 //{
@@ -36,7 +42,15 @@ builder.Services.AddControllersWithViews();
 //var serializedCalendar = serializer.SerializeToString(calendar);
 //Console.WriteLine(serializedCalendar);
 
+
 var app = builder.Build();
+// Seed roles
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    await SeedDB.Seed(services);    
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -61,5 +75,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+
 
 app.Run();
