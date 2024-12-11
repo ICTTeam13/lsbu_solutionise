@@ -1,1 +1,1 @@
-web: dotnet lsbu_solutionise.dll
+web: cd lsbu_solutionise/lsbu_solutionise/bin/Release/net8.0/publish/;

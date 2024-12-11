@@ -1,0 +1,127 @@
+﻿@model IEnumerable<lsbu_solutionise.Data.Customer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessPostcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessWebsite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnualRevenue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportNeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HearUs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessPostcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessWebsite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualRevenue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupportNeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HearUs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDateTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

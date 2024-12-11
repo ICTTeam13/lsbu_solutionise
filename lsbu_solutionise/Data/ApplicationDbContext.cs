@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using lsbu_solutionise.Data;
 
 namespace lsbu_solutionise.Data
 {
@@ -9,5 +10,6 @@ namespace lsbu_solutionise.Data
             : base(options)
         {
         }
+        public DbSet<lsbu_solutionise.Data.Customer> Customer { get; set; } = default!;
     }
 }

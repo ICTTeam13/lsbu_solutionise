@@ -5,9 +5,7 @@ namespace lsbu_solutionise.Sevices
 {
     public class EmailService
     {
-        private readonly IConfiguration _configuration;
-
-       
+        private readonly IConfiguration _configuration;       
         public EmailService(IConfiguration configuration)
         {
             _configuration = configuration;
