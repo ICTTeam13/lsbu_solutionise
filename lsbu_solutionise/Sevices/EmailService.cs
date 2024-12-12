@@ -17,7 +17,7 @@ namespace lsbu_solutionise.Sevices
             var smtpClient = new SmtpClient("smtp-relay.brevo.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("80d85f001@smtp-brevo.com", "SXBrNTE8hVdJzbOP"),
+                Credentials = new NetworkCredential("80d85f003@smtp-brevo.com", "Hg0TC9QF1SRj8ZUr"),
                 EnableSsl = true,
             };
 
@@ -31,7 +31,13 @@ namespace lsbu_solutionise.Sevices
 
             mail.To.Add(toEmail);
 
-            smtpClient.Send(mail);
+            try
+            {
+                smtpClient.Send(mail);
+            }
+            catch (Exception ex)
+            {                
+            }           
 
         }
 
