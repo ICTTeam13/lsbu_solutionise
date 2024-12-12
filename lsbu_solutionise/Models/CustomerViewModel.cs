@@ -4,6 +4,7 @@ namespace lsbu_solutionise.Models
 {
     public class CustomerViewModel
     {
+        public Guid Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         public string LastName { get; set; }

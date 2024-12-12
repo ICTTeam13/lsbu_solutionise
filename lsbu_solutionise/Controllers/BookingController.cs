@@ -110,17 +110,18 @@ namespace lsbu_solutionise.Controllers
                     customer.LastName = collection.LastName;
                     customer.Email = collection.Email;
                     customer.ContactNumber = collection.ContactNumber;
-                    customer.BusinessAddress = "okay";
+                    customer.BusinessAddress = collection.BusinessAddress;
                     customer.BusinessName = collection.BusinessName;
                     customer.BusinessDescription = collection.BusinessDescription;
                     customer.BusinessWebsite = collection.BusinessWebsite;
                     customer.BusinessPostcode = collection.BusinessPostcode;
-                    customer.AnnualRevenue = "500";
+                    customer.AnnualRevenue = 500;
                     customer.BookingDateTime = collection.BookingDateTime;
                     customer.BusinessType = "IT";
                     customer.BusinessContact = collection.BusinessContact;
                     customer.SupportNeed = collection.SupportNeed;
                     customer.HearUs = collection.HearUs;
+                    customer.Status = "Pending";
                     
                     customer.CreationDatimetime = DateTime.Now;
                     customer.UpdateDatimetime = DateTime.Now;

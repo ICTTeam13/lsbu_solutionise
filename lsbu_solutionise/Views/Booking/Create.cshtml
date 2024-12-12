@@ -129,6 +129,11 @@
                                 <input asp-for="BusinessName" style="color:black" class="form-control" placeholder="Business Name" required/>
                                 <span asp-validation-for="BusinessName" class="text-danger"></span>
                             </div>
+                            <div>
+                                <label asp-for="BookingDateTime" class="control-label">Appointent Date*</label>
+                                <input asp-for="BookingDateTime" style="color:black" class="form-control" placeholder="Appointent Date" required />
+                                <span asp-validation-for="BookingDateTime" class="text-danger"></span>
+                            </div>
                              <div>
                                 <label asp-for="BusinessDescription" class="control-label">Business Description*</label>
                                 <input asp-for="BusinessDescription" style="color:black" class="form-control" placeholder="Business Description" required />

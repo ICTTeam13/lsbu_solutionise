@@ -1,32 +1,43 @@
 ﻿@model IEnumerable<AdminViewModel>
+
 @{
     ViewData["Title"] = "Admin";    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
-
 <h1>Customers</h1>
-<table border="1">
+<table class="table">
     <thead>
-        <tr>
-            <th>CustomerID</th>
+        <tr>            
             <th>CustomerName</th>
             <th>BusinessName</th>
             <th>AppointmentDate</th>
             <th>Status</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.CustomerID</td>
+            <tr>                
                 <td>@item.CustomerName</td>
                 <td>@item.BusinessName</td>
                 <td>@item.AppointmentDate</td>
                 <td>@item.Status</td>
+                
+                @if(!string.IsNullOrEmpty(item.Status) && item.Status == "Approved")
+                {
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="@Url.Action("Reminder","Admin",new {id=item.CustomerID})">Send Reminder</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="@Url.Action("Edit","Admin",new {id=item.CustomerID})">Edit</a>
+                    </td>
+                }
+                
             </tr>
         }
     </tbody>

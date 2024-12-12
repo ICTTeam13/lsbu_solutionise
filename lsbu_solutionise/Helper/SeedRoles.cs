@@ -25,7 +25,7 @@ namespace lsbu_solutionise.Helper
             }
 
             // Seed Admin User
-            var adminEmail = "aamir@gmail.com";
+            var adminEmail = "admin@gmail.com";
             var adminPassword = "Lsbu@123";
             if (await userManager.FindByEmailAsync(adminEmail) == null)
             {
