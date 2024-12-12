@@ -24,7 +24,7 @@ namespace lsbu_solutionise.Controllers
         public async Task<ActionResult> Index()
         {
             var customer = await _context.Customer.ToListAsync();
-            var customerData = customer.Select(e => new AdminViewModel { CustomerID = e.Id, AppointmentDate = e.BookingDateTime, BusinessName = e.BusinessName, CustomerName = $"{e.FirstName} {e.LastName}", Status = e.Status }).ToList();
+            var customerData = customer.Select(e => new AdminViewModel { CustomerID = e.Id, AppointmentDate = e.BookingDateTime, BusinessName = e.BusinessName, CustomerName = $"{e.FirstName} {e.LastName}", Status = (e.Status ?? "Pending"),CustomerEmail = e.Email }).OrderByDescending(e => e.CreationDatimetime).ToList();
             return View(customerData);
         }
 

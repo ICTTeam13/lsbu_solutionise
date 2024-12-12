@@ -4,23 +4,37 @@
     ViewData["Title"] = "Admin";    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#tableBody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
 <h1>Customers</h1>
-<table class="table">
+<div class="container mt-5">
+    <input class="form-control mb-3" id="searchInput" type="text" placeholder="Search..." style="width: 40%;float: right;">
+    <table class="table table-bordered">
     <thead>
-        <tr>            
-            <th>CustomerName</th>
+        <tr>
+             <th>CustomerName</th>
+            <th>Email</th>
             <th>BusinessName</th>
             <th>AppointmentDate</th>
             <th>Status</th>
-            <th></th>
-            <th></th>
+            <th></th>            
         </tr>
     </thead>
-    <tbody>
+        <tbody id="tableBody">
         @foreach (var item in Model)
         {
             <tr>                
                 <td>@item.CustomerName</td>
+                <td>@item.CustomerEmail</td>
                 <td>@item.BusinessName</td>
                 <td>@item.AppointmentDate</td>
                 <td>@item.Status</td>
@@ -42,3 +56,5 @@
         }
     </tbody>
 </table>
+
+</div>
