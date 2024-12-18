@@ -130,10 +130,16 @@
                                 <span asp-validation-for="BusinessName" class="text-danger"></span>
                             </div>
                             <div>
-                                <label asp-for="BookingDateTime" class="control-label">Appointent Date*</label>
-                                <input asp-for="BookingDateTime" style="color:black" class="form-control" placeholder="Appointent Date" required />
+                                <label asp-for="BookingDateTime" class="control-label">Appointment Date*</label>
+                                <input asp-for="BookingDateTime"
+                                       style="color:black"
+                                       class="form-control"
+                                       placeholder="Appointment Date"
+                                       value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"
+                                       required />
                                 <span asp-validation-for="BookingDateTime" class="text-danger"></span>
                             </div>
+
                              <div>
                                 <label asp-for="BusinessDescription" class="control-label">Business Description*</label>
                                 <input asp-for="BusinessDescription" style="color:black" class="form-control" placeholder="Business Description" required />
@@ -143,10 +149,9 @@
                                 <label asp-for="BusinessType" class="control-label">Business Stage</label>
                                 <select asp-for="BusinessType" class="form-control">
                                     <option value="" disabled selected>Select Business Stage</option>
-                                    <option value="stage1">Menu item 1</option>
-                                    <option value="stage2">Menu item 2</option>
-                                    <option value="stage3">Menu item 3</option>
-                                    <option value="stage4">Menu item 4</option>
+                                    <option value="stage1">I am currently developing a business idea and have not started trading yet</option>
+                                    <option value="stage2">I have started trading but I'm still developing my business model</option>
+                                    <option value="stage3">I currently have a solid business model</option>
                                 </select>
                                 <span asp-validation-for="BusinessType" class="text-danger"></span>
                             </div>
@@ -212,21 +217,22 @@
                                         <div style="display:flex">
                                             <div>
                                             <label>
-                                                <input asp-for="SupportNeed" type="radio" value="facebook"/>
-                                                SupportNeed 1
+                                                <input asp-for="SupportNeed" type="radio" value="business"/>
+                                                Business
                                             </label>
                                             <label>
-                                                <input asp-for="SupportNeed" type="radio" value="instagram"/>
-                                                SupportNeed 2
+                                                <input asp-for="SupportNeed" type="radio" value="engineering" />
+                                                Engineering
                                             </label>
                                             <label>
-                                                <input asp-for="SupportNeed" type="radio" value="linkedin"/>
-                                                SupportNeed 3
+                                                <input asp-for="SupportNeed" type="radio" value="it"/>
+                                                IT
                                             </label>
                                             <label>
-                                                <input asp-for="SupportNeed" type="radio" value="youtube" />
-                                                SupportNeed 4
+                                                <input asp-for="SupportNeed" type="radio" value="legal"/>
+                                                Legal
                                             </label>
+ 
                                   
                                              </div>
                                         </div>
@@ -238,21 +244,14 @@
                                 <div style="display:flex">
                                     <div>
                                     <label>
-                                        <input asp-for="HelpTypes" type="radio" value="facebook"/>
-                                        Help Type 1
+                                        <input asp-for="HelpTypes" type="radio" value="hire"/>
+                                        I want to hire a student or graduate (only paid opportunities)
                                     </label>
                                     <label>
-                                        <input asp-for="HelpTypes" type="radio" value="instagram"/>
-                                        Help Type 2
+                                        <input asp-for="HelpTypes" type="radio" value="advice"/>
+                                        I need a business advice
                                     </label>
-                                    <label>
-                                        <input asp-for="HelpTypes" type="radio" value="linkedin"/>
-                                        Help Type 3
-                                    </label>
-                                    <label>
-                                        <input asp-for="HelpTypes" type="radio" value="youtube" />
-                                        Help Type 4
-                                    </label>                                  
+                                                                      
                                      </div>
                                 </div>
                                  <span asp-validation-for="HelpTypes" class="text-danger"></span>
@@ -288,21 +287,37 @@
                                     <div style="display:flex">
                                         <div>
                                         <label>
-                                            <input asp-for="HearUs" type="radio" value="facebook"/>
-                                            Help Type 1
+                                            <input asp-for="HearUs" type="radio" value="LSBUwebsite" />
+                                            LSBU Website
                                         </label>
                                         <label>
-                                            <input asp-for="HearUs" type="radio" value="instagram"/>
-                                            Help Type 2
+                                            <input asp-for="HearUs" type="radio" value="socialmedia"/>
+                                            Social Media
                                         </label>
                                         <label>
-                                            <input asp-for="HearUs" type="radio" value="linkedin"/>
-                                            Help Type 3
+                                            <input asp-for="HearUs" type="radio" value="referral" />
+                                            Referral
                                         </label>
                                         <label>
-                                            <input asp-for="HearUs" type="radio" value="youtube" />
-                                            Help Type 4
-                                        </label>                                  
+                                            <input asp-for="HearUs" type="radio" value="oncampusevent" />
+                                            On campus event
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="externalevent" />
+                                            External Event
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="publication" />
+                                            On a publication (online or physical)
+                                        </label>
+                                        <label>
+                                            <input asp-for="HearUs" type="radio" value="passingby" />
+                                            I was passing by
+                                        </label>
+                                        <label>
+                                        <input asp-for="HearUs" type="radio" value="other" />
+                                            Other
+                                        </label>
                                          </div>
                                     </div>
                                      <span asp-validation-for="HearUs" class="text-danger"></span>
@@ -374,9 +389,9 @@
         <div class="useful_info">
             <h4>Useful Information</h4>
             <div class="info_links">
-                <a href="/home/Policies" class="footer_button">Terms & Conditions</a>
-                <a href="/home/Policies" class="footer_button">Cookie Policy</a>
-                <a href="/home/Policies" class="footer_button">Privacy Policy</a>
+                <a href="/home/policies" class="footer_button">Terms & Conditions</a>
+                <a href="https://www.lsbu.ac.uk/footer/data-protection/cookie-policy" class="footer_button">Cookie Policy</a>
+                <a href="/home/privacy" class="footer_button">Privacy Policy</a>
             </div>
         </div>
 

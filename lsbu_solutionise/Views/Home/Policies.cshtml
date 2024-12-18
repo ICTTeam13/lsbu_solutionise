@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@page
+@model LoginModel
+@using Microsoft.AspNetCore.Identity
+@using lsbu_solutionise.Areas.Identity.Pages.Account
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -59,6 +67,26 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/home/faq">FAQ</a>
                                 </li>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Customers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                        </form>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </nav>
@@ -72,60 +100,7 @@
     <section class="policies_section">
         <div class="container policies">
             <h1>Terms and Conditions of Use</h1>
-            <p><strong>Last Updated:</strong> 10-12-2024</p>
-            <p>Welcome to [Your Website/Platform Name]! These Terms and Conditions ("Terms") govern your access to and use of our website, services, and any content, functionality, and services offered (collectively, the "Services"). Please read these Terms carefully before using our Services.</p>
-
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not use our Services.</p>
-
-            <h2>2. Eligibility</h2>
-            <p>You must be at least 18 years old or the age of majority in your jurisdiction to use our Services. By using our Services, you represent and warrant that you meet the eligibility requirements.</p>
-
-            <h2>3. User Accounts</h2>
-            <ul>
-                <li>You may be required to create an account to access certain features of our Services.</li>
-                <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-                <li>You agree to provide accurate and up-to-date information when creating your account.</li>
-            </ul>
-
-            <h2>4. Prohibited Uses</h2>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Use the Services for any illegal or unauthorized purpose.</li>
-                <li>Attempt to gain unauthorized access to our systems or other users’ accounts.</li>
-                <li>Post or transmit any harmful, threatening, or inappropriate content.</li>
-            </ul>
-
-            <h2>5. Intellectual Property</h2>
-            <p>All content, trademarks, and logos provided by our Services are owned by or licensed to [Your Company Name]. You may not reproduce, distribute, or create derivative works from our content without prior written permission.</p>
-
-            <h2>6. Termination</h2>
-            <p>We reserve the right to suspend or terminate your access to our Services at any time without notice if you violate these Terms.</p>
-
-            <h2>7. Disclaimer of Warranties</h2>
-            <p>Our Services are provided "as is" and "as available." We disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose.</p>
-
-            <h2>8. Limitation of Liability</h2>
-            <p>To the fullest extent permitted by law, [Your Company Name] shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of the Services.</p>
-
-            <h2>9. Indemnification</h2>
-            <p>You agree to indemnify and hold harmless [Your Company Name] from and against any claims, liabilities, damages, or expenses arising from your use of the Services.</p>
-
-            <h2>10. Changes to Terms</h2>
-            <p>We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the Services constitutes acceptance of the revised Terms.</p>
-
-            <h2>11. Governing Law</h2>
-            <p>These Terms are governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes arising from these Terms shall be resolved in the courts of [Your Jurisdiction].</p>
-
-            <h2>12. Contact Information</h2>
-            <p>If you have any questions about these Terms, please contact us at:</p>
-            <ul>
-                <li><strong>Email:</strong> solutionise@lsbu.ac.uk</li>
-                <li><strong>Phone:</strong> +44 07341 512651</li>
-                <li><strong>Website:</strong> www.lsbu.ac.uk</li>
-            </ul>
-
-            <p>By using our Services, you acknowledge that you have read, understood, and agreed to these Terms and Conditions. Thank you for choosing LSBU Solutionise!</p>
+            <p>The terms of use outlined here relate to any&nbsp;<a href="https://www.lsbu.ac.uk" title="lsbu.ac.uk">www.lsbu.ac.uk</a> website and any sub-site contained within the lsbu.ac.uk domain.</p><p>By using this website or by downloading any material from it you are agreeing to the Terms and Conditions detailed below.</p><h2>Copyright</h2><p>Unless otherwise stated, all content contained within this website is copyright to London South Bank University or has been licensed to London South Bank University by the right owners. No part of the website may be reprinted or used elsewhere in any form without prior permission from the University.</p><p>London South Bank University ensures that we comply with copyright law. If you believe that materials contained on the website may infringe this, please contact our Copyright Advisor, by emailing&nbsp;<a href="mailto:copyright@lsbu.ac.uk">copyright@lsbu.ac.uk</a>.</p><h2>Disclaimer</h2><p>London South Bank University reserves the right to change the content of the website at any time.</p><p>The content is the responsibility of individuals/departments across the University so that although every attempt will be made to keep it up to date, the University cannot be held liable for it.</p><p>The purpose of the London South Bank University website is to provide general information to those wishing to find out about the University, departments or events, and should not be used exclusively in any personal decisions such as choosing to study our courses or not; to verify information before acting on it, please use our <a href="https://www.lsbu.ac.uk/contact-us" title="Contact Us">contact us</a> page or any contact details available on our specific web pages.</p><p>London South Bank University ensures that all information included on our web pages is up to date and accurate. However cases may arise where we are unable to update content as quickly as we may need. When this does occur we will take every reasonable step to deliver accurate information as quickly as possible.</p><p>London South Bank University accepts no responsibility for any loss or damage that may arise from reliance on information or advice contained on this website.</p><h2>External Websites</h2><p>To help provide users with information that will be relevant to them, we occasionally link to external websites. We accept no liability on the content and information included on these sites as we have no control over how they may change this information. We also do not accept liability from any sites which may link to us as again this is beyond our control.</p><h2>Company information</h2><p>London South Bank University is a company limited by guarantee registered in England and Wales. The following details apply to London South Bank University: Company number 00986761; Registered office and trading address - 103 Borough Road London SE1 0AA; VAT number - 778 1116 17.</p>
 
         </div>
     </section>
@@ -140,8 +115,8 @@
             <h4>Useful Information</h4>
             <div class="info_links">
                 <a href="/home/policies" class="footer_button">Terms & Conditions</a>
-                <a href="/home/policies" class="footer_button">Cookie Policy</a>
-                <a href="/home/policies" class="footer_button">Privacy Policy</a>
+                <a href="https://www.lsbu.ac.uk/footer/data-protection/cookie-policy" class="footer_button">Cookie Policy</a>
+                <a href="/home/privacy" class="footer_button">Privacy Policy</a>
             </div>
         </div>
 
